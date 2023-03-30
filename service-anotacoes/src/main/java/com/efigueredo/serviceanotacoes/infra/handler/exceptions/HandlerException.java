@@ -28,7 +28,7 @@ public class HandlerException {
     public ResponseEntity<DtoErro> tratarErroDeSintaxeNoJson(EntityNotFoundException ex) {
         String mensagem = ex.getMessage();
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                new DtoErro("Anotação inexistente", mensagem, "", "404")
+                new DtoErro("Anotacao inexistente", mensagem, "", "404")
         );
     }
 

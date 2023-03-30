@@ -43,6 +43,7 @@ public class AnotacoesService {
     }
 
     public void removerAnotacao(Long id) {
+        System.out.println("LOG REMOVENDO");
         this.verificarSeAnotacaoDeIdExiste(id);
         this.anotacaoRepository.deleteById(id);
     }

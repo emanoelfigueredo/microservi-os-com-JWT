@@ -23,8 +23,6 @@ public class AnotacaoController {
 
     @GetMapping
     public ResponseEntity<Page<DtoAnotacoesResposta>> listarAnotacoes(@PageableDefault(size = 10) Pageable paginacao) {
-        System.out.println(paginacao);
-        System.out.println(paginacao.getClass());
         Page<DtoAnotacoesResposta> dados = this.anotacaoService.obterTodas(paginacao);
         return ResponseEntity.ok().body(dados);
     }

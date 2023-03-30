@@ -1,13 +1,14 @@
 package com.efigueredo.serviceanotacoes.infra.controller;
 
-import com.efigueredo.serviceanotacoes.domain.Anotacao;
 import com.efigueredo.serviceanotacoes.infra.handler.exceptions.DtoErro;
 import com.efigueredo.serviceanotacoes.service.AnotacoesService;
 import com.efigueredo.serviceanotacoes.service.dto.DtoAnotacoesResposta;
 import com.efigueredo.serviceanotacoes.service.dto.requisicao.DtoAnotacoesCadastroRequisicao;
+import jakarta.persistence.EntityNotFoundException;
 import org.json.JSONObject;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.AutoConfigureJsonTesters;
@@ -16,19 +17,21 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.when;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 @SpringBootTest
 @AutoConfigureJsonTesters
@@ -57,25 +60,10 @@ public class AnotacaoControllerTest {
     @Autowired
     private JacksonTester<DtoAnotacoesCadastroRequisicao> dtoCadastroAnotacao;
 
-//    @Test
-//    @DisplayName("Deveria retornar código 200 e no conteudo a lista de anotações")
-//    public void listar_cenario1() throws Exception {
-//        Page<Anotacao> pageAnotacoes = this.obterPageAnotacao(this.obterListaAnotacoes());
-//        Page<DtoAnotacoesResposta> pageDtoAnotacoesResposta = this.obterPageDtoRespostaAnotacao(pageAnotacoes);
-//        when(this.anotacaoService.obterTodas(any(PageRequest.class))).thenReturn(pageDtoAnotacoesResposta);
-//        MockHttpServletResponse response = this.mvc.perform(
-//                                                        get("/anotacoes")
-//                                                    ).andReturn().getResponse();
-//        System.out.println(response.getContentAsString());
-//        String jsonEsperado = this.dtoRespostaAnotacoes.write(pageDtoAnotacoesResposta).getJson();
-//        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
-//        assertThat(response.getContentAsString()).isEqualTo(jsonEsperado);
-//    }
-
     @Test
     @DisplayName("Deveria retornar código 201 e o JSON da anotação criada")
     public void criar_anotacao_cenario1() throws Exception {
-        var dtoCadastro = new DtoAnotacoesCadastroRequisicao("titulo", "conteudo");
+        var dtoCadastro = new DtoAnotacoesCadastroRequisicao(null, "titulo", "conteudo");
         var dtoResposta = new DtoAnotacoesResposta(null, "titulo", "conteudo", LocalDateTime.now());
         when(this.anotacaoService.criarAnotacao(dtoCadastro)).thenReturn(dtoResposta);
         var response = this.mvc.perform(
@@ -147,29 +135,137 @@ public class AnotacaoControllerTest {
         ).andReturn().getResponse();
 
         DtoErro dtoErroResponseTitulo = new DtoErro("Campo invalido", "Campo 'titulo' incorreto", "", "422");
-        DtoErro dtoErroResponseconteudo = new DtoErro("Campo invalido", "Campo 'conteudo' incorreto", "", "422");
+        DtoErro dtoErroResponseConteudo = new DtoErro("Campo invalido", "Campo 'conteudo' incorreto", "", "422");
         String jsonReponseEsperadoTitulo = this.dtoErro.write(dtoErroResponseTitulo).getJson();
-        String jsonReponseEsperadoconteudo = this.dtoErro.write(dtoErroResponseconteudo).getJson();
-        List<String> jsons = List.of(jsonReponseEsperadoTitulo + "," + jsonReponseEsperadoconteudo);
+        String jsonReponseEsperadoConteudo = this.dtoErro.write(dtoErroResponseConteudo).getJson();
 
+        // Devido a possibilidade do objeto json de titulo e conteudo vierem na reposta em posições diferentes,
+        // é necessário verificar qual vem primeiro para realizar a assertiva.
+        String body = response.getContentAsString();
+        int posicaoDoCampoTitulo = body.indexOf("'titulo'");
+        int posicaoDoCampoConteudo = body.indexOf("'conteudo'");
+        if(posicaoDoCampoTitulo < posicaoDoCampoConteudo) {
+            List<String> jsons = List.of(jsonReponseEsperadoTitulo + "," + jsonReponseEsperadoConteudo);
+            assertThat(body).isEqualTo(jsons.toString());
+        } else {
+            List<String> jsons = List.of(jsonReponseEsperadoConteudo + "," + jsonReponseEsperadoTitulo);
+            assertThat(body).isEqualTo(jsons.toString());
+        }
         assertThat(response.getStatus()).isEqualTo(HttpStatus.UNPROCESSABLE_ENTITY.value());
-        assertThat(response.getContentAsString()).isEqualTo(jsons.toString());
     }
 
-    private List<Anotacao> obterListaAnotacoes() {
-        return List.of(
-                new Anotacao(1l, "Titulo1", "Conteudo 1", LocalDateTime.now()),
-                new Anotacao(2l, "Titulo2", "Conteudo 2", LocalDateTime.now()),
-                new Anotacao(3l, "Titulo3", "Conteudo 3", LocalDateTime.now())
+    @Test
+    @DisplayName("Deveria retornar código 204 quando a remoção de anotação for concluída")
+    public void remover_anotacao_cenario1() throws Exception {
+        doNothing().when(this.anotacaoService).removerAnotacao(1l);
+        var response = this.mvc.perform(
+                                delete("/anotacoes/1")
+                        ).andReturn().getResponse();
+        assertThat(response.getStatus()).isEqualTo(HttpStatus.NO_CONTENT.value());
+    }
+
+    @Test
+    @DisplayName("Deveria retornar código 404 quando for solicitado a remoção de uma anotação de ID inexistente")
+    public void remover_anotacao_cenario2() throws Exception {
+
+        var ex = new EntityNotFoundException("Anotacao de id 20 nao existe");
+        doThrow(ex).when(this.anotacaoService).removerAnotacao(20l);
+        var response = this.mvc.perform(
+                delete("/anotacoes/20")
+        ).andReturn().getResponse();
+
+        DtoErro dtoErroResponse = new DtoErro("Anotacao inexistente", "Anotacao de id 20 nao existe", "", "404");
+        String jsonReponseEsperado = this.dtoErro.write(dtoErroResponse).getJson();
+
+        assertThat(response.getStatus()).isEqualTo(HttpStatus.NOT_FOUND.value());
+        assertThat(response.getContentAsString()).isEqualTo(jsonReponseEsperado);
+    }
+
+    @Test
+    @DisplayName("Deveria retonrar código 200 quando requisição de atualização de anotação for bem sucedido")
+    public void atualizar_anotacao_cenario1() throws Exception {
+        var dtoRequisicao = new DtoAnotacoesCadastroRequisicao(
+                null, "titulo alterado", "conteudo alterado"
         );
+        var dtoRetornoService = new DtoAnotacoesResposta(
+                1l, "titulo alterado", "conteudo alterado", LocalDateTime.now()
+        );
+
+        when(this.anotacaoService.atualizarAnotacao(1l, dtoRequisicao))
+                .thenReturn(dtoRetornoService);
+
+        var jsonRequisicaoAlteracao = this.dtoCadastroAnotacao.write(dtoRequisicao).getJson();
+        var response = this.mvc.perform(
+                put("/anotacoes/1")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonRequisicaoAlteracao)
+        ).andReturn().getResponse();
+        var jsonEsperadoResposta = this.dtoRespostaAnotacoes.write(dtoRetornoService).getJson();
+
+        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
+        assertThat(response.getContentAsString()).isEqualTo(jsonEsperadoResposta);
     }
 
-    private Page<Anotacao> obterPageAnotacao(List<Anotacao> anotacoes) {
-        return new PageImpl<Anotacao>(anotacoes);
+    @Test
+    @DisplayName("Deveria retonrar código 404 quando requisição de atualização vir com id inexistente")
+    public void atualizar_anotacao_cenario2() throws Exception {
+        var dtoRequisicao = new DtoAnotacoesCadastroRequisicao(
+                null, "titulo alterado", "conteudo alterado"
+        );
+
+        EntityNotFoundException ex = new EntityNotFoundException("Anotacao de id 20 nao existe");
+        Mockito.doThrow(ex).when(this.anotacaoService).atualizarAnotacao(20l, dtoRequisicao);
+
+        var jsonRequisicaoAlteracao = this.dtoCadastroAnotacao.write(dtoRequisicao).getJson();
+        var response = this.mvc.perform(
+                put("/anotacoes/20")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonRequisicaoAlteracao)
+        ).andReturn().getResponse();
+
+        DtoErro dtoErroResponse = new DtoErro("Anotacao inexistente", "Anotacao de id 20 nao existe", "", "404");
+        String jsonReponseEsperado = this.dtoErro.write(dtoErroResponse).getJson();
+
+        assertThat(response.getStatus()).isEqualTo(HttpStatus.NOT_FOUND.value());
+        assertThat(response.getContentAsString()).isEqualTo(jsonReponseEsperado);
     }
 
-    private Page<DtoAnotacoesResposta> obterPageDtoRespostaAnotacao(Page<Anotacao> pageAnotacoes) {
-        return pageAnotacoes.map(anotacao -> this.modelMapper.map(anotacao, DtoAnotacoesResposta.class));
+    @Test
+    @DisplayName("Deveria retornar código 200 e Json da anotação quando for encontrada")
+    public void obter_anotacao_cenario2() throws Exception {
+
+        var dtoRespostaService = new DtoAnotacoesResposta(1l, "titulo1", "conteudo1", LocalDateTime.now());
+        when(this.anotacaoService.obterAnotacao(1l)).thenReturn(dtoRespostaService);
+
+        var response = this.mvc.perform(
+                                get("/anotacoes/1")
+                        ).andReturn().getResponse();
+
+        var jsonEsperado = this.dtoRespostaAnotacoes.write(dtoRespostaService).getJson();
+
+        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
+        assertThat(response.getContentAsString()).isEqualTo(jsonEsperado);
+
     }
+
+    @Test
+    @DisplayName("Deveria retornar código 404 e Json de erro quando buscar anotacao inexistente")
+    public void obter_anotacao_cenario1() throws Exception {
+
+        var ex = new EntityNotFoundException("Anotacao de id 20 nao existe");
+        doThrow(ex).when(this.anotacaoService).obterAnotacao(20l);
+
+        var response = this.mvc.perform(
+                get("/anotacoes/20")
+        ).andReturn().getResponse();
+
+        DtoErro dtoErroResponse = new DtoErro("Anotacao inexistente", "Anotacao de id 20 nao existe", "", "404");
+        String jsonReponseEsperado = this.dtoErro.write(dtoErroResponse).getJson();
+
+        assertThat(response.getStatus()).isEqualTo(HttpStatus.NOT_FOUND.value());
+        assertThat(response.getContentAsString()).isEqualTo(jsonReponseEsperado);
+
+    }
+
 
 }
