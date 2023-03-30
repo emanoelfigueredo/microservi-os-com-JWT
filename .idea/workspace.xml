@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57083648-8e67-4125-9840-711b3cd42d67" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/service-anotacoes/src/main/resources/application-test.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-anotacoes/src/test/java/com/efigueredo/serviceanotacoes/service/AnotacoesService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-anotacoes/src/test/java/com/efigueredo/serviceanotacoes/service/AnotacoesServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/infra/controller/AnotacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/infra/controller/AnotacaoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/infra/handler/exceptions/HandlerException.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/infra/handler/exceptions/HandlerException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/domain/AnotacaoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/domain/AnotacaoRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/service/AnotacoesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/service/AnotacoesService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-anotacoes/src/test/java/com/efigueredo/serviceanotacoes/infra/controller/AnotacaoControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-anotacoes/src/test/java/com/efigueredo/serviceanotacoes/infra/controller/AnotacaoControllerTest.java" afterDir="false" />
     </list>
@@ -15,6 +17,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,10 +50,23 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "last_opened_file_path": "C:/Users/Emanoel/Desktop/microservi-os-com-JWT/service-anotacoes"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.AnotacaoControllerTest">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.efigueredo.serviceanotacoes.service" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.efigueredo.serviceanotacoes.service" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.AnotacoesServiceTest">
     <configuration name="AnotacaoControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service-anotacoes" />
       <extension name="coverage">
@@ -56,22 +78,6 @@
       <option name="PACKAGE_NAME" value="com.efigueredo.serviceanotacoes.infra.controller" />
       <option name="MAIN_CLASS_NAME" value="com.efigueredo.serviceanotacoes.infra.controller.AnotacaoControllerTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AnotacaoControllerTest.atualizar_anotacao_cenario1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="service-anotacoes" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.efigueredo.serviceanotacoes.infra.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.efigueredo.serviceanotacoes.infra.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.efigueredo.serviceanotacoes.infra.controller.AnotacaoControllerTest" />
-      <option name="METHOD_NAME" value="atualizar_anotacao_cenario1" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -108,17 +114,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AnotacaoControllerTest.remover_anotacao_cenario2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AnotacoesServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service-anotacoes" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.efigueredo.serviceanotacoes.infra.controller.*" />
+          <option name="PATTERN" value="com.efigueredo.serviceanotacoes.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.efigueredo.serviceanotacoes.infra.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.efigueredo.serviceanotacoes.infra.controller.AnotacaoControllerTest" />
-      <option name="METHOD_NAME" value="remover_anotacao_cenario2" />
+      <option name="PACKAGE_NAME" value="com.efigueredo.serviceanotacoes.service" />
+      <option name="MAIN_CLASS_NAME" value="com.efigueredo.serviceanotacoes.service.AnotacoesServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AnotacoesServiceTest.obterTodas_cenario1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service-anotacoes" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.efigueredo.serviceanotacoes.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.efigueredo.serviceanotacoes.service" />
+      <option name="MAIN_CLASS_NAME" value="com.efigueredo.serviceanotacoes.service.AnotacoesServiceTest" />
+      <option name="METHOD_NAME" value="obterTodas_cenario1" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -139,11 +160,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AnotacoesServiceTest" />
+        <item itemvalue="JUnit.AnotacoesServiceTest.obterTodas_cenario1" />
         <item itemvalue="JUnit.AnotacaoControllerTest" />
         <item itemvalue="JUnit.AnotacaoControllerTest.obter_anotacao_cenario1" />
         <item itemvalue="JUnit.AnotacaoControllerTest.atualizar_anotacao_cenario2" />
-        <item itemvalue="JUnit.AnotacaoControllerTest.atualizar_anotacao_cenario1" />
-        <item itemvalue="JUnit.AnotacaoControllerTest.remover_anotacao_cenario2" />
       </list>
     </recent_temporary>
   </component>

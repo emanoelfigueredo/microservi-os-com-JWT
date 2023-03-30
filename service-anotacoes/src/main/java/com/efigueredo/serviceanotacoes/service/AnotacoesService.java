@@ -10,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -43,7 +44,6 @@ public class AnotacoesService {
     }
 
     public void removerAnotacao(Long id) {
-        System.out.println("LOG REMOVENDO");
         this.verificarSeAnotacaoDeIdExiste(id);
         this.anotacaoRepository.deleteById(id);
     }

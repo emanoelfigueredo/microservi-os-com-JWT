@@ -1,7 +1,6 @@
 package com.efigueredo.serviceanotacoes.infra.controller;
 
 import com.efigueredo.serviceanotacoes.infra.handler.exceptions.DtoErro;
-import com.efigueredo.serviceanotacoes.service.AnotacoesService;
 import com.efigueredo.serviceanotacoes.service.dto.DtoAnotacoesResposta;
 import com.efigueredo.serviceanotacoes.service.dto.requisicao.DtoAnotacoesCadastroRequisicao;
 import jakarta.persistence.EntityNotFoundException;
@@ -21,7 +20,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -266,6 +264,5 @@ public class AnotacaoControllerTest {
         assertThat(response.getContentAsString()).isEqualTo(jsonReponseEsperado);
 
     }
-
 
 }
