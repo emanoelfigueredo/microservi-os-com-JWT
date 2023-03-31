@@ -5,22 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57083648-8e67-4125-9840-711b3cd42d67" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-anotacoes/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-registry/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/infra/conf/security/AutenticacaoConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/infra/controller/IdentidadeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/service/dto/requisicao/DtoRegistroRequisicao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-anotacoes/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-anotacoes/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-anotacoes/src/test/java/com/efigueredo/serviceanotacoes/infra/controller/AnotacaoControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-anotacoes/src/test/java/com/efigueredo/serviceanotacoes/infra/controller/AnotacaoControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-gateway/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -51,10 +59,14 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "C:/Users/Emanoel/Desktop/test again/microservi-os-com-JWT/service-registry"
+    "last_opened_file_path": "C:/Users/Emanoel/Desktop/test again/microservi-os-com-JWT/service-identidate",
+    "settings.editor.selected.configurable": "advanced.settings"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.efigueredo.service_identidate.service.dto.requisicao" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Emanoel\Desktop\test again\microservi-os-com-JWT\service-registry" />
       <recent name="C:\Users\Emanoel\Desktop\test again\microservi-os-com-JWT\service-anotacoes" />
@@ -75,7 +87,20 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.ServiceAnotacoesApplication">
+  <component name="RunManager" selected="Application.MsIdentidadeApplication">
+    <configuration name="MsIdentidadeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.efigueredo.service_identidate.MsIdentidadeApplication" />
+      <module name="service-identidate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.efigueredo.service_identidate.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ServiceAnotacoesApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.efigueredo.serviceanotacoes.ServiceAnotacoesApplication" />
       <module name="service-anotacoes" />
@@ -89,33 +114,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AnotacaoControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="service-anotacoes" />
+    <configuration name="ServiceGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.efigueredo.service_gateway.ServiceGatewayApplication" />
+      <module name="service-gateway" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.efigueredo.serviceanotacoes.infra.controller.*" />
+          <option name="PATTERN" value="com.efigueredo.service_gateway.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.efigueredo.serviceanotacoes.infra.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.efigueredo.serviceanotacoes.infra.controller.AnotacaoControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AnotacaoControllerTest.obter_anotacao_cenario1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="service-anotacoes" />
+    <configuration name="ServiceRegistryApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.efigueredo.service_registry.ServiceRegistryApplication" />
+      <module name="service-registry" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.efigueredo.serviceanotacoes.infra.controller.*" />
+          <option name="PATTERN" value="com.efigueredo.service_registry.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.efigueredo.serviceanotacoes.infra.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.efigueredo.serviceanotacoes.infra.controller.AnotacaoControllerTest" />
-      <option name="METHOD_NAME" value="obter_anotacao_cenario1" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -135,22 +155,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AnotacoesServiceTest.obterTodas_cenario1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="service-anotacoes" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.efigueredo.serviceanotacoes.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.efigueredo.serviceanotacoes.service" />
-      <option name="MAIN_CLASS_NAME" value="com.efigueredo.serviceanotacoes.service.AnotacoesServiceTest" />
-      <option name="METHOD_NAME" value="obterTodas_cenario1" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="service-gateway" />
       <method v="2">
@@ -166,11 +170,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ServiceGatewayApplication" />
+        <item itemvalue="Application.ServiceRegistryApplication" />
+        <item itemvalue="Application.MsIdentidadeApplication" />
         <item itemvalue="Application.ServiceAnotacoesApplication" />
         <item itemvalue="JUnit.AnotacoesServiceTest" />
-        <item itemvalue="JUnit.AnotacoesServiceTest.obterTodas_cenario1" />
-        <item itemvalue="JUnit.AnotacaoControllerTest" />
-        <item itemvalue="JUnit.AnotacaoControllerTest.obter_anotacao_cenario1" />
       </list>
     </recent_temporary>
   </component>

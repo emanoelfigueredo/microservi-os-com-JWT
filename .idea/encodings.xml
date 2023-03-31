@@ -5,6 +5,8 @@
     <file url="file://$PROJECT_DIR$/service-anotacoes/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-identidate/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-identidate/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service-registry/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service-registry/src/main/resources" charset="UTF-8" />
   </component>

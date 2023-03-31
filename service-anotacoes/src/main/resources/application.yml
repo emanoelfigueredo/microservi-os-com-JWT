@@ -1,14 +1,17 @@
 spring:
   application:
-    name: SERVICE-ANOTACOES
+    name: ms-anotacoes
 
   datasource:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/ms_anotacoes?createDatabaseIfNotExist=true
-    username: ${MYSQL_USER}
-    password: ${MYSQL_PASSWORD}
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:wall2003}
 
 
 eureka:
   client:
     service-url:
-      defaultZone: http://${EUREKA_HOST}:${EUREKA_PORT}/eureka/
+      defaultZone: http://${EUREKA_HOST:localhost}:${EUREKA_PORT:8761}/eureka/
+
+server:
+  port: 8081

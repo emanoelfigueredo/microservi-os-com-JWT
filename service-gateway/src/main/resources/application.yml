@@ -1,14 +1,19 @@
 spring:
-  application:
-    name: SERVICE-GATEWAY
-
   cloud:
     gateway:
       routes:
-        - id: SERVICE-ANOTACOES
-          uri: lb://SERVICE-ANOTACOES
+        - id: ms-anotacoes
+          uri: lb://ms-anotacoes
           predicates:
             - Path=/anotacoes/**
+
+        - id: ms-identidade
+          uri: lb://ms-identidade
+          predicates:
+            - Path=/identidade/**
+
+  application:
+    name: SERVICE-GATEWAY
 
 eureka:
   client:

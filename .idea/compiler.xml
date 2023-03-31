@@ -7,9 +7,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="service-registry" />
         <module name="service-anotacoes" />
         <module name="service-gateway" />
+        <module name="service-registry" />
+        <module name="service-identidate" />
       </profile>
     </annotationProcessing>
   </component>
@@ -17,6 +18,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="service-anotacoes" options="-parameters" />
       <module name="service-gateway" options="-parameters" />
+      <module name="service-identidate" options="-parameters" />
       <module name="service-registry" options="-parameters" />
     </option>
   </component>
