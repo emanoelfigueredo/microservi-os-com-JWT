@@ -1,0 +1,39 @@
+version: "3"
+services:
+
+  eureka-server:
+    container_name: EUREKA-SERVER
+    image: efigueredo/service-registry:1.0
+    restart: always
+    build: .
+    ports:
+      - 8761:8761
+
+  mysqldb:
+    container_name: mysqldb
+    image: mysql
+    env_file: ./.env
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: $MYSQL_PASSWORD
+
+  springboot-app:
+    container_name: MS-ANOTACOES
+    depends_on:
+      - mysqldb
+      - eureka-server
+    image: efigueredo/ms-anotacoes:1.2
+    restart: always
+    build: .
+    env_file: ./.env
+    ports:
+      - 8080:8080
+    environment:
+      MYSQL_HOST: mysqldb
+      MYSQL_USER: $MYSQL_USER
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+      MYSQL_PORT: $MYSQL_PORT
+      EUREKA_PORT: 8761
+      EUREKA_HOST: eureka-server
+

@@ -1,6 +1,7 @@
 package com.efigueredo.serviceanotacoes.infra.controller;
 
 import com.efigueredo.serviceanotacoes.infra.handler.exceptions.DtoErro;
+import com.efigueredo.serviceanotacoes.service.AnotacoesService;
 import com.efigueredo.serviceanotacoes.service.dto.DtoAnotacoesResposta;
 import com.efigueredo.serviceanotacoes.service.dto.requisicao.DtoAnotacoesCadastroRequisicao;
 import jakarta.persistence.EntityNotFoundException;
@@ -24,7 +25,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
