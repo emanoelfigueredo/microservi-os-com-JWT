@@ -5,27 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57083648-8e67-4125-9840-711b3cd42d67" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/domain/Usuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/domain/UsuarioRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/infra/conf/BeansConfigurarion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/infra/conf/exception/DtoErro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/infra/conf/exception/HandlerException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/infra/conf/security/CustomUserDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/service/CustomUserDetailsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/service/RegistroUsuarioService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/service/TokenJwt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/service/TokenJwtService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/service/dto/DtoAutenticacao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/service/exception/IdentidadeException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/service/exception/NaoAutenticadoException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/service/exception/UsernameExistenteException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-identidate/src/main/resources/db/migration/V1__create-table-usuario.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/conf/BeanConfigurarion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/filter/AutenticacaoFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/filter/RouteValidation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/filter/exception/GatewayException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/filter/exception/GlobalErrorAttributes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/filter/exception/GlobalErrorWebExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/utils/JwtUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-gateway/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-identidate/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/infra/conf/security/AutenticacaoConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/infra/conf/security/AutenticacaoConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/infra/controller/IdentidadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/infra/controller/IdentidadeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/service/AutenticacaoService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/service/dto/requisicao/DtoRegistroRequisicao.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/service/dto/requisicao/DtoRegistroRequisicao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/infra/conf/exception/HandlerException.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/infra/conf/exception/HandlerException.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,9 +177,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ServiceGatewayApplication" />
         <item itemvalue="Application.MsIdentidadeApplication" />
         <item itemvalue="Application.ServiceAnotacoesApplication" />
-        <item itemvalue="Application.ServiceGatewayApplication" />
         <item itemvalue="Application.ServiceRegistryApplication" />
         <item itemvalue="JUnit.AnotacoesServiceTest" />
       </list>

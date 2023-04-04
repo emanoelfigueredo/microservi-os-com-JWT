@@ -2,7 +2,6 @@ package com.efigueredo.service_identidate.infra.conf.exception;
 
 import com.efigueredo.service_identidate.service.exception.NaoAutenticadoException;
 import com.efigueredo.service_identidate.service.exception.UsernameExistenteException;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 @RestControllerAdvice
 public class HandlerException {

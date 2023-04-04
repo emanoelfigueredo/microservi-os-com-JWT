@@ -6,6 +6,8 @@ spring:
           uri: lb://ms-anotacoes
           predicates:
             - Path=/anotacoes/**
+          filters:
+            - AutenticacaoFilter
 
         - id: ms-identidade
           uri: lb://ms-identidade
