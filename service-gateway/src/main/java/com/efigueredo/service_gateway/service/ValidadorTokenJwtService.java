@@ -6,6 +6,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
@@ -13,7 +14,8 @@ import java.security.Key;
 @Service
 public class ValidadorTokenJwtService {
 
-    public static final String SECRET = "5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437";
+    @Value("${secret.key}")
+    private String SECRET;
 
     public void validarToken(String jwtToken) {
         try {
@@ -26,7 +28,7 @@ public class ValidadorTokenJwtService {
     }
 
     private Key getSignKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(SECRET);
+        byte[] keyBytes = Decoders.BASE64.decode(this.SECRET);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
