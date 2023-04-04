@@ -23,3 +23,8 @@ docker-compose up
 ~~~
 
 # Endpoints
+
+# Funcionamento
+![representacao](https://user-images.githubusercontent.com/121516171/229862718-ad7ddcc3-dbf1-47ed-9313-055eded6d17a.png)
+
+As requisições passam através dos filtros do Gateway. Um deles permique que qualquer requisição passe para os endpoints: /identidade/registrar, /identidade/validar ou /identidade/autenticar o token JWT. No entanto, para qualquer outro endpoint, será necessário que o token venha no header. O filtro analizará a validade do token enviado no proprio gateway. Se for válido a requisição seguirá o fluxo até o endpoint.
