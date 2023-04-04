@@ -5,18 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57083648-8e67-4125-9840-711b3cd42d67" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/conf/BeanConfigurarion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/filter/AutenticacaoFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/filter/RouteValidation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/filter/exception/GatewayException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/filter/exception/GlobalErrorAttributes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/filter/exception/GlobalErrorWebExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/utils/JwtUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/service/ValidadorTokenJwtService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/service/VerificadorTokenJwtService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/infra/conf/exception/HandlerException.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/infra/conf/exception/HandlerException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/filter/AutenticacaoFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/filter/AutenticacaoFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/filter/exception/GatewayException.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/exception/GatewayException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/filter/exception/GlobalErrorAttributes.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/exception/GlobalErrorAttributes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/filter/exception/GlobalErrorWebExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/exception/GlobalErrorWebExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/utils/JwtUtil.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

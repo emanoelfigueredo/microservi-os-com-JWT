@@ -1,4 +1,4 @@
-package com.efigueredo.service_gateway.infra.filter.exception;
+package com.efigueredo.service_gateway.infra.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
