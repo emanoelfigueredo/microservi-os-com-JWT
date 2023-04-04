@@ -7,3 +7,19 @@
 <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white">
 <a href="https://www.linkedin.com/in/emanoel-figuer%C3%AAdo-47063b215/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
 </p>
+
+# Descrição do projeto
+API REST para registro de anotações. Utilizando a arquitetura de microserviços, a aplicação se divide em quatro partes: 
+- Server Registry (Spring Cloud Netflix – Eureka) 
+- Gateway (Spring Cloud Gateway)
+- Microserviço de autenticacao
+- Microserviço de anotações
+
+# Subir aplicação
+No diretório raiz da aplicação, digite o comando:
+~~~docker
+git clone https://github.com/emanoelfigueredo/microservicos-com-JWT.git
+docker-compose up
+~~~
+
+# Endpoints
