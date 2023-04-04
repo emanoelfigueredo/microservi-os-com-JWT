@@ -26,12 +26,12 @@ services:
 
   mysqldb:
     container_name: mysqldb
-    image: mysql
+    image: mysql:8.0
     env_file: ./.env
     ports:
       - 3307:3306
     environment:
-      MYSQL_ROOT_PASSWORD: $MYSQL_PASSWORD
+      - MYSQL_ROOT_PASSWORD=$MYSQL_PASSWORD
 
   ms-identidade:
     container_name: MS_IDENTIDADE

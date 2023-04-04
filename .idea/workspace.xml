@@ -5,34 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57083648-8e67-4125-9840-711b3cd42d67" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/service-gateway/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-gateway/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-identidate/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-identidate/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/service/ValidadorTokenJwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/service/ValidadorTokenJwtService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/MsIdentidadeApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/MsIdentidadeApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/domain/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/domain/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/domain/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/domain/UsuarioRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/infra/conf/BeansConfigurarion.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/infra/conf/BeansConfigurarion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/infra/conf/exception/DtoErro.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/infra/conf/exception/DtoErro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/infra/conf/exception/HandlerException.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/infra/conf/exception/HandlerException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/infra/conf/security/AutenticacaoConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/infra/conf/security/AutenticacaoConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/infra/conf/security/CustomUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/infra/conf/security/CustomUserDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/infra/controller/IdentidadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/infra/controller/IdentidadeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/service/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/CustomUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/service/RegistroUsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/RegistroUsuarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/service/TokenJwt.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/TokenJwt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/service/TokenJwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/TokenJwtService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/service/dto/DtoAutenticacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/dto/DtoAutenticacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/service/dto/requisicao/DtoRegistroRequisicao.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/dto/requisicao/DtoRegistroRequisicao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/service/exception/IdentidadeException.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/exception/IdentidadeException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/service/exception/NaoAutenticadoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/exception/NaoAutenticadoException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidate/service/exception/UsernameExistenteException.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/exception/UsernameExistenteException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidate/src/test/java/com/efigueredo/service_identidate/MsIdentidadeApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/test/java/com/efigueredo/service_identidade/MsIdentidadeApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,15 +47,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "C:/Users/Emanoel/Desktop/test again/microservi-os-com-JWT/service-identidate/src/main/resources",
-    "settings.editor.selected.configurable": "advanced.settings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Emanoel/Desktop/test again/microservi-os-com-JWT/service-identidate/src/main/resources&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.efigueredo.service_identidate.service.exception" />
@@ -113,7 +87,7 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.MsIdentidadeApplication">
+  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
     <configuration name="MsIdentidadeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.efigueredo.service_identidade.MsIdentidadeApplication" />
       <module name="service-identidate" />
@@ -166,21 +140,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AnotacoesServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="service-anotacoes" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.efigueredo.serviceanotacoes.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.efigueredo.serviceanotacoes.service" />
-      <option name="MAIN_CLASS_NAME" value="com.efigueredo.serviceanotacoes.service.AnotacoesServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="service-gateway" />
       <method v="2">
@@ -194,13 +153,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml" />
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Application.MsIdentidadeApplication" />
         <item itemvalue="Application.ServiceGatewayApplication" />
         <item itemvalue="Application.ServiceAnotacoesApplication" />
         <item itemvalue="Application.ServiceRegistryApplication" />
-        <item itemvalue="JUnit.AnotacoesServiceTest" />
       </list>
     </recent_temporary>
   </component>
