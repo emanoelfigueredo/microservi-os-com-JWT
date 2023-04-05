@@ -5,8 +5,6 @@ import com.efigueredo.service_identidade.infra.conf.exception.IdentityException;
 import com.efigueredo.service_identidade.infra.conf.security.CustomUserDetails;
 import com.efigueredo.service_identidade.service.dto.requisicao.DtoRegistroRequisicao;
 import com.efigueredo.service_identidade.service.dto.resposta.DtoUsuarioResposta;
-import com.efigueredo.service_identidade.service.exception.IdentidadeException;
-import org.glassfish.jaxb.runtime.v2.runtime.output.Encoded;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +16,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Component;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -29,16 +25,30 @@ import static org.junit.jupiter.api.Assertions.*;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @ActiveProfiles("test")
 @ComponentScan("com.efigueredo.service_identidade")
-class UsuarioServiceTest {
+class UsuarioServiceTest extends TestServiceUsuario {
 
     @Autowired
     private UsuarioService service;
 
     @Autowired
-    private TestEntityManager em;
-
-    @Autowired
     private PasswordEncoder encoder;
+
+    @Test
+    @DisplayName("Deveria registrar usuario com username nunca utilizado")
+    public void salvar_usuario_cenario1() throws IdentityException {
+        var dto = new DtoRegistroRequisicao(null, "nome", "username" ,"senha");
+        DtoUsuarioResposta dtoUsuarioResposta = this.service.salvarUsuario(dto);
+        var dtoRespostaEsperado = new DtoUsuarioResposta("nome", "username", true);
+        assertThat(dtoUsuarioResposta).isEqualTo(dtoRespostaEsperado);
+    }
+
+    @Test
+    @DisplayName("Deveria lançar exceção quando registrar usuario com username ja utilizado")
+    public void salvar_usuario_cenario2() {
+        super.cadastrarUsuario("jorge", "jorge", "jorge123", "ROLE_USUARIO", true, false);
+        var dto = new DtoRegistroRequisicao(null, "nome", "jorge" ,"senha");
+        assertThrows(IdentityException.class, () -> this.service.salvarUsuario(dto));
+    }
 
     @DisplayName("Deveria retornar usuario quando buscado pelo id existente.")
     @Test
@@ -91,7 +101,7 @@ class UsuarioServiceTest {
 
     @DisplayName("Deveria alterar usuario de id existente")
     @Test
-    public void alterar_usuario_cenario1() throws IdentityException, IdentidadeException {
+    public void alterar_usuario_cenario1() throws IdentityException {
         Usuario usuario = this.cadastrarUsuario("Paulo", "paulo", "paulo123", "ROLE_USUARIO", true, false);
         var dtoAlteracao = new DtoRegistroRequisicao(null, "novo-nome", "novo-username", "nova-senha");
         Usuario usuarioAlterado = this.service.alterarUsuario(usuario.getId(), dtoAlteracao);
@@ -101,7 +111,7 @@ class UsuarioServiceTest {
 
     @DisplayName("Deveria lançar exceção quando alterar usuario com id inexistente")
     @Test
-    public void alterar_usuario_cenario2() throws IdentityException, IdentidadeException {
+    public void alterar_usuario_cenario2() {
         Usuario usuario = this.cadastrarUsuario("Paulo", "paulo", "paulo123", "ROLE_USUARIO", true, false);
         var dtoAlteracao = new DtoRegistroRequisicao(null, "novo-nome", "novo-username", "nova-senha");
         assertThrows(IdentityException.class, () -> this.service.alterarUsuario(usuario.getId() + 1000, dtoAlteracao));
@@ -109,7 +119,7 @@ class UsuarioServiceTest {
 
     @DisplayName("Deveria lançar exceção quando alterar usuario com username já utilizado")
     @Test
-    public void alterar_usuario_cenario3() throws IdentityException, IdentidadeException {
+    public void alterar_usuario_cenario3() {
         Usuario usuario1 = this.cadastrarUsuario("Paulo", "paulo", "paulo123", "ROLE_USUARIO", true, false);
         Usuario usuario2 = this.cadastrarUsuario("Maria", "maria", "maria123", "ROLE_USUARIO", true, false);
         var dtoAlteracao = new DtoRegistroRequisicao(null, "novo-nome", "maria", "nova-senha");
@@ -182,22 +192,6 @@ class UsuarioServiceTest {
         Usuario usuarioLogado = this.setarUsuarioLogado("Paulo", "paulo", "paulo123", "ROLE_USUARIO", false, true);
         assertThrows(IdentityException.class, () -> this.service.obterProprioUsuario("senha_incorreta"));
 
-    }
-
-    private Usuario cadastrarUsuario(String nome, String username, String senha, String roles, boolean ativo, boolean senhaCriptografada) {
-        if(senhaCriptografada) {
-            senha = this.encoder.encode(senha);
-        }
-        Usuario usuario = new Usuario(null, nome, username, senha, roles, ativo);
-        return this.em.persist(usuario);
-    }
-
-    private Usuario setarUsuarioLogado(String nome, String username, String senha, String roles, boolean ativo, boolean senhaCriptografada) {
-        Usuario usuario = this.cadastrarUsuario(nome, username, senha, roles, ativo, senhaCriptografada);
-        CustomUserDetails userDetails = new CustomUserDetails(usuario);
-        Authentication autenticacao = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-        SecurityContextHolder.getContext().setAuthentication(autenticacao);
-        return usuario;
     }
 
 }

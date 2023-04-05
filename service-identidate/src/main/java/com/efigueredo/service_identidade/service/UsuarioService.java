@@ -1,5 +1,6 @@
 package com.efigueredo.service_identidade.service;
 
+import com.efigueredo.service_identidade.domain.RolesUsuario;
 import com.efigueredo.service_identidade.domain.Usuario;
 import com.efigueredo.service_identidade.infra.conf.exception.IdentityException;
 import com.efigueredo.service_identidade.infra.conf.security.CustomUserDetails;
@@ -19,6 +20,16 @@ public class UsuarioService extends ServiceIdentity {
 
     @Autowired
     private PasswordEncoder encoder;
+
+    public DtoUsuarioResposta salvarUsuario(DtoRegistroRequisicao dto) throws IdentityException {
+        this.verificarSeUsernameJaFoiUtilizado(dto.getUsername());
+        Usuario usuario = dto.toUsuario();
+        usuario.setRoles(RolesUsuario.ROLE_USUARIO.toString());
+        usuario.setActive(true);
+        usuario.setSenha(this.encoder.encode(dto.getSenha()));
+        Usuario usuarioSalvo = super.usuarioRepository.save(usuario);
+        return new DtoUsuarioResposta(usuarioSalvo);
+    }
 
     public Page<DtoUsuarioResposta> listarUsuarios(Pageable paginacao) {
         return super.usuarioRepository.findAll(paginacao).map(DtoUsuarioResposta::new);

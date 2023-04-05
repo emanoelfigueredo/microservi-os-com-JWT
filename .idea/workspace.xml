@@ -5,8 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57083648-8e67-4125-9840-711b3cd42d67" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/infra/client/UsuariosClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-identidate/src/test/java/com/efigueredo/service_identidade/service/TestServiceUsuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-anotacoes/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-anotacoes/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/infra/conf/exception/HandlerException.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/infra/conf/exception/HandlerException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/infra/conf/exception/IdentityException.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/infra/conf/exception/IdentityException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/infra/controller/IdentidadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/infra/controller/IdentidadeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/infra/controller/UsuariosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/infra/controller/UsuariosController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/RegistroUsuarioService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/ServiceIdentity.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/ServiceIdentity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/TokenJwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/TokenJwtService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/UsuarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/exception/IdentidadeException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/exception/NaoAutenticadoException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/exception/UsernameExistenteException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-identidate/src/test/java/com/efigueredo/service_identidade/service/UsuarioServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/test/java/com/efigueredo/service_identidade/service/UsuarioServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +35,8 @@
       <list>
         <option value="Interface" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -89,7 +103,38 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UsuarioServiceTest">
+  <component name="RunManager" selected="Application.MsIdentidadeApplication">
+    <configuration name="MsIdentidadeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="SECRET_KEY" value="5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="com.efigueredo.service_identidade.MsIdentidadeApplication" />
+      <module name="service-identidate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.efigueredo.service_identidade.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegistroUsuarioServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service-identidate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.efigueredo.service_identidade.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.efigueredo.service_identidade.service" />
+      <option name="MAIN_CLASS_NAME" value="com.efigueredo.service_identidade.service.RegistroUsuarioServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UsuarioServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service-identidate" />
       <extension name="coverage">
@@ -101,38 +146,6 @@
       <option name="PACKAGE_NAME" value="com.efigueredo.service_identidade.service" />
       <option name="MAIN_CLASS_NAME" value="com.efigueredo.service_identidade.service.UsuarioServiceTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UsuarioServiceTest.alterar_proprias_credenciais_cenario1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="service-identidate" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.efigueredo.service_identidade.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.efigueredo.service_identidade.service" />
-      <option name="MAIN_CLASS_NAME" value="com.efigueredo.service_identidade.service.UsuarioServiceTest" />
-      <option name="METHOD_NAME" value="alterar_proprias_credenciais_cenario1" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UsuarioServiceTest.alterar_proprias_credenciais_cenario2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="service-identidate" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.efigueredo.service_identidade.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.efigueredo.service_identidade.service" />
-      <option name="MAIN_CLASS_NAME" value="com.efigueredo.service_identidade.service.UsuarioServiceTest" />
-      <option name="METHOD_NAME" value="alterar_proprias_credenciais_cenario2" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -189,19 +202,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.MsIdentidadeApplication" />
+      <item itemvalue="JUnit.RegistroUsuarioServiceTest" />
       <item itemvalue="JUnit.UsuarioServiceTest" />
-      <item itemvalue="JUnit.UsuarioServiceTest.alterar_proprias_credenciais_cenario1" />
-      <item itemvalue="JUnit.UsuarioServiceTest.alterar_proprias_credenciais_cenario2" />
       <item itemvalue="JUnit.UsuarioServiceTest.obter_proprio_usuario_logado_cenario1" />
       <item itemvalue="JUnit.UsuarioServiceTest.obter_proprio_usuario_logado_cenario2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MsIdentidadeApplication" />
         <item itemvalue="JUnit.UsuarioServiceTest" />
+        <item itemvalue="JUnit.RegistroUsuarioServiceTest" />
         <item itemvalue="JUnit.UsuarioServiceTest.obter_proprio_usuario_logado_cenario2" />
         <item itemvalue="JUnit.UsuarioServiceTest.obter_proprio_usuario_logado_cenario1" />
-        <item itemvalue="JUnit.UsuarioServiceTest.alterar_proprias_credenciais_cenario2" />
-        <item itemvalue="JUnit.UsuarioServiceTest.alterar_proprias_credenciais_cenario1" />
       </list>
     </recent_temporary>
   </component>

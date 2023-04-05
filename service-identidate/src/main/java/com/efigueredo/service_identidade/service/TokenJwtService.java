@@ -4,6 +4,8 @@ import java.security.Key;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.SignatureVerificationException;
+import com.efigueredo.service_identidade.infra.conf.exception.IdentityException;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
@@ -21,11 +23,17 @@ public class TokenJwtService {
     @Value("${secret.key}")
     private String SECRET;
 
-    public void validarToken(String jwtToken) {
-        var algoritmo = Algorithm.HMAC256(this.SECRET);
-        JWT.require(algoritmo)
-                .build()
-                .verify(jwtToken);
+    public void validarToken(String jwtToken) throws IdentityException {
+        try {
+            var algoritmo = Algorithm.HMAC256(this.SECRET);
+            JWT.require(algoritmo)
+                    .build()
+                    .verify(jwtToken);
+        } catch (SignatureVerificationException ex) {
+            throw new IdentityException("Falha na autenticação", "Token JWT inválido", "", "403");
+        } catch (ExpiredJwtException ex) {
+            throw new IdentityException("Falha na autenticação", "Token JWT expirado", "", "401");
+        }
     }
 
     public TokenJwt gerarToken(String username) {

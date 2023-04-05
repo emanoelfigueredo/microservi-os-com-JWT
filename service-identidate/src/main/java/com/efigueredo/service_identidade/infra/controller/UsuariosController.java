@@ -7,7 +7,6 @@ import com.efigueredo.service_identidade.service.UsuarioService;
 import com.efigueredo.service_identidade.service.dto.requisicao.DtoRegistroRequisicao;
 import com.efigueredo.service_identidade.service.dto.requisicao.DtoSenha;
 import com.efigueredo.service_identidade.service.dto.resposta.DtoUsuarioResposta;
-import com.efigueredo.service_identidade.service.exception.IdentidadeException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -61,14 +60,14 @@ public class UsuariosController {
 
     @PreAuthorize("hasAuthority('ROLE_ADMINISTRADOR')")
     @PutMapping("{id}")
-    public ResponseEntity<Usuario> alterarCredenciais(@RequestBody @Valid DtoRegistroRequisicao dto, @PathVariable Long id) throws IdentidadeException, IdentityException {
+    public ResponseEntity<Usuario> alterarCredenciais(@RequestBody @Valid DtoRegistroRequisicao dto, @PathVariable Long id) throws IdentityException {
         Usuario usuario = this.usuarioService.alterarUsuario(id, dto);
         return ResponseEntity.ok(usuario);
     }
 
     @PreAuthorize("hasAuthority('ROLE_USUARIO')")
     @PutMapping
-    public ResponseEntity<Usuario> alterarCredenciaisProprias(@RequestBody @Valid DtoRegistroRequisicao dto) throws IdentidadeException, IdentityException {
+    public ResponseEntity<Usuario> alterarCredenciaisProprias(@RequestBody @Valid DtoRegistroRequisicao dto) throws IdentityException {
         Usuario usuario = this.usuarioService.alterarPropriasCredenciais(dto);
         return ResponseEntity.ok(usuario);
     }

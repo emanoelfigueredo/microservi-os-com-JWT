@@ -2,8 +2,6 @@ package com.efigueredo.service_identidade.service;
 
 import com.efigueredo.service_identidade.domain.UsuarioRepository;
 import com.efigueredo.service_identidade.infra.conf.exception.IdentityException;
-import com.efigueredo.service_identidade.service.exception.IdentidadeException;
-import com.efigueredo.service_identidade.service.exception.UsernameExistenteException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class ServiceIdentity {
