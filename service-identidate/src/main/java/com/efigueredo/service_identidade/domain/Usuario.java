@@ -30,4 +30,9 @@ public class Usuario {
     @Size(max = 100)
     private String senha;
 
+    @NotBlank
+    private String roles;
+
+    private Boolean active;
+
 }

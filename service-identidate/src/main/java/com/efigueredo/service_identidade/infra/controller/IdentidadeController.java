@@ -1,5 +1,6 @@
 package com.efigueredo.service_identidade.infra.controller;
 
+import com.efigueredo.service_identidade.infra.conf.exception.IdentityException;
 import com.efigueredo.service_identidade.service.RegistroUsuarioService;
 import com.efigueredo.service_identidade.service.TokenJwt;
 import com.efigueredo.service_identidade.service.TokenJwtService;
@@ -11,6 +12,7 @@ import jakarta.validation.Valid;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -30,7 +32,7 @@ public class IdentidadeController {
     private TokenJwtService tokenJwtService;
 
     @PostMapping("registrar")
-    public ResponseEntity registrar(@RequestBody @Valid DtoRegistroRequisicao dto) throws IdentidadeException {
+    public ResponseEntity registrar(@RequestBody @Valid DtoRegistroRequisicao dto) throws IdentityException {
         this.autenticacaoService.salvarUsuario(dto);
         return ResponseEntity.ok().build();
     }

@@ -1,0 +1,3 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ms_identidade_test?createDatabaseIfNotExist=true

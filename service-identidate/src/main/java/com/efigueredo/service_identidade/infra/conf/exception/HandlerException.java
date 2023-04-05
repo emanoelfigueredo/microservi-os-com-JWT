@@ -1,5 +1,6 @@
 package com.efigueredo.service_identidade.infra.conf.exception;
 
+import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.efigueredo.service_identidade.service.exception.NaoAutenticadoException;
 import com.efigueredo.service_identidade.service.exception.UsernameExistenteException;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -33,10 +34,10 @@ public class HandlerException {
         return ResponseEntity.status(401).body(erro);
     }
 
-    @ExceptionHandler(SignatureException.class)
+    @ExceptionHandler(SignatureVerificationException.class)
     public ResponseEntity<DtoErro> tratarSignatureException(SignatureException ex) {
-        DtoErro erro = new DtoErro("Falha de autenticacao", "Token JWT invalido", "", "401");
-        return ResponseEntity.status(401).body(erro);
+        DtoErro erro = new DtoErro("Falha de autenticacao", "Token JWT invalido", "", "403");
+        return ResponseEntity.status(403).body(erro);
     }
 
     @ExceptionHandler(ExpiredJwtException.class)
