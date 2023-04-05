@@ -1,13 +1,10 @@
 package com.efigueredo.service_identidade.service;
 
 import com.efigueredo.service_identidade.domain.Usuario;
-import com.efigueredo.service_identidade.domain.UsuarioRepository;
 import com.efigueredo.service_identidade.infra.conf.exception.IdentityException;
 import com.efigueredo.service_identidade.infra.conf.security.CustomUserDetails;
 import com.efigueredo.service_identidade.service.dto.requisicao.DtoRegistroRequisicao;
 import com.efigueredo.service_identidade.service.dto.resposta.DtoUsuarioResposta;
-import com.efigueredo.service_identidade.service.exception.IdentidadeException;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -29,37 +26,26 @@ public class UsuarioService extends ServiceIdentity {
 
     public DtoUsuarioResposta obterUsuarioPorId(Long id) throws IdentityException {
         Optional<Usuario> optionalUsuario = super.usuarioRepository.findById(id);
-        if(optionalUsuario.isEmpty()) {
-            throw new IdentityException("Valor invalido", "Usuario de id " + id + " nao existe no sistema", "", "404");
-        }
+        this.verificarOptionalPorId(optionalUsuario, id);
         return new DtoUsuarioResposta(optionalUsuario.get());
     }
 
     public DtoUsuarioResposta obterUsuarioPorUsername(String username) throws IdentityException {
         Optional<Usuario> optionalUsuario = super.usuarioRepository.findByUsername(username);
-        if(optionalUsuario.isEmpty()) {
-            throw new IdentityException("Valor invalido", "Usuario de username '" + username + "' nao existe no sistema", "", "404");
-        }
+        this.verificarOptionalPorUsername(optionalUsuario, username);
         return new DtoUsuarioResposta(optionalUsuario.get());
     }
 
     public CustomUserDetails obterProprioUsuario(String senha) throws IdentityException {
-        CustomUserDetails user = (CustomUserDetails) SecurityContextHolder
-                                                        .getContext()
-                                                        .getAuthentication()
-                                                        .getPrincipal();
-        if(!this.encoder.matches(senha, user.getPassword())) {
-            throw new IdentityException("Credencial inválida", "Senha inserida é inválida", "", "422");
-        }
+        CustomUserDetails user = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        this.verificarAutenticidadeDaSenhaInformada(senha, user.getPassword());
         user.setSenha(senha);
         return user;
     }
 
     public void removerUsuario(Long id) throws IdentityException {
         Optional<Usuario> optionalUsuario = super.usuarioRepository.findById(id);
-        if(optionalUsuario.isEmpty()) {
-            throw new IdentityException("Valor invalido", "Usuario de id " + id + " nao existe no sistema", "", "404");
-        }
+        this.verificarOptionalPorId(optionalUsuario, id);
         Usuario usuario = optionalUsuario.get();
         usuario.setActive(false);
         super.usuarioRepository.save(usuario);
@@ -67,9 +53,7 @@ public class UsuarioService extends ServiceIdentity {
 
     public Usuario alterarUsuario(Long id, DtoRegistroRequisicao dto) throws IdentityException {
         Optional<Usuario> optionalUsuario = super.usuarioRepository.findById(id);
-        if(optionalUsuario.isEmpty()) {
-            throw new IdentityException("Valor invalido", "Usuario de id " + id + " nao existe no sistema", "", "404");
-        }
+        this.verificarOptionalPorId(optionalUsuario, id);
         Usuario usuario = optionalUsuario.get();
         usuario.setNome(dto.getNome());
         usuario.setSenha(this.encoder.encode(dto.getSenha()));
@@ -84,10 +68,7 @@ public class UsuarioService extends ServiceIdentity {
     public void desativarUsuarioProprio() throws IdentityException {
         CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Usuario usuario = super.usuarioRepository.findByUsername(userDetails.getUsername()).get();
-        boolean ehAdministador = usuario.getRoles().contains("ROLE_ADMINISTRADOR");
-        if(ehAdministador) {
-            throw new IdentityException("Operação inválida", "Administrador não pode se desativar", "", "400");
-        }
+        this.verificarSeEAdministrador(usuario);
         usuario.setActive(false);
         super.usuarioRepository.save(usuario);
     }
@@ -96,10 +77,7 @@ public class UsuarioService extends ServiceIdentity {
     public void ativarUsuarioProprio() throws IdentityException {
         CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Usuario usuario = super.usuarioRepository.findByUsername(userDetails.getUsername()).get();
-        boolean ehAdministador = usuario.getRoles().contains("ROLE_ADMINISTRADOR");
-        if(ehAdministador) {
-            throw new IdentityException("Operação inválida", "Administrador não pode se desativar", "", "400");
-        }
+        this.verificarSeEAdministrador(usuario);
         usuario.setActive(true);
         super.usuarioRepository.save(usuario);
     }
@@ -116,4 +94,31 @@ public class UsuarioService extends ServiceIdentity {
         }
         return super.usuarioRepository.save(usuario);
     }
+
+    private void verificarAutenticidadeDaSenhaInformada(String senhaInformada, String senhaCriptografada) throws IdentityException {
+        boolean senhaCriptografadaEAMesmaDaInformada = this.encoder.matches(senhaInformada, senhaCriptografada);
+        if(!senhaCriptografadaEAMesmaDaInformada) {
+            throw new IdentityException("Credencial inválida", "Senha inserida é inválida", "", "422");
+        }
+    }
+
+    private void verificarSeEAdministrador(Usuario usuario) throws IdentityException {
+        boolean ehAdministador = usuario.getRoles().contains("ROLE_ADMINISTRADOR");
+        if(ehAdministador) {
+            throw new IdentityException("Operação inválida", "Administrador não pode se desativar", "", "400");
+        }
+    }
+
+    private void verificarOptionalPorId(Optional<Usuario> optionalUsuario, Long id) throws IdentityException {
+        if(optionalUsuario.isEmpty()) {
+            throw new IdentityException("Valor invalido", "Usuario de id " + id + " nao existe no sistema", "", "404");
+        }
+    }
+
+    private void verificarOptionalPorUsername(Optional<Usuario> optionalUsuario, String username) throws IdentityException {
+        if(optionalUsuario.isEmpty()) {
+            throw new IdentityException("Valor invalido", "Usuario de username '" + username + "' nao existe no sistema", "", "404");
+        }
+    }
+
 }
