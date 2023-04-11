@@ -1,11 +1,10 @@
 package com.efigueredo.service_gateway.service;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.efigueredo.service_gateway.infra.exception.GatewayException;
 import io.jsonwebtoken.ExpiredJwtException;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.io.Decoders;
-import io.jsonwebtoken.security.Keys;
-import io.jsonwebtoken.security.SignatureException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -17,19 +16,17 @@ public class ValidadorTokenJwtService {
     @Value("${secret.key}")
     private String SECRET;
 
-    public void validarToken(String jwtToken) {
+    public void validarToken(String jwtToken) throws GatewayException {
         try {
-            Jwts.parserBuilder().setSigningKey(this.getSignKey()).build().parseClaimsJws(jwtToken);
-        } catch (SignatureException e) {
-            throw new GatewayException("Nao autenticado", "O token enviado não é valido", "", "403");
-        } catch (ExpiredJwtException e) {
-            throw new GatewayException("Nao autenticado", "O token enviado esta expirado", "", "401");
+            var algoritmo = Algorithm.HMAC256(this.SECRET);
+            JWT.require(algoritmo)
+                    .build()
+                    .verify(jwtToken);
+        } catch (SignatureVerificationException ex) {
+            throw new GatewayException("Falha na autenticação", "Token JWT inválido", "", "403");
+        } catch (ExpiredJwtException ex) {
+            throw new GatewayException("Falha na autenticação", "Token JWT expirado", "", "401");
         }
-    }
-
-    private Key getSignKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(this.SECRET);
-        return Keys.hmacShaKeyFor(keyBytes);
     }
 
 }

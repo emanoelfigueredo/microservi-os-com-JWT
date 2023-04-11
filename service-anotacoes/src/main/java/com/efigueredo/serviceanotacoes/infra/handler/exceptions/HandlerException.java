@@ -32,4 +32,12 @@ public class HandlerException {
         );
     }
 
+    @ExceptionHandler(AnotacaoException.class)
+    public ResponseEntity<DtoErro> tratarErroAnotacaoException(AnotacaoException ex) {
+        int status = Integer.parseInt(ex.getStatus());
+        return ResponseEntity.status(status).body(
+                new DtoErro(ex.getTitle(), ex.getDetail(), ex.getType(), ex.getStatus())
+        );
+    }
+
 }

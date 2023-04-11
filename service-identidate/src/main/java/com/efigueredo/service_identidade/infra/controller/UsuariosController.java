@@ -3,6 +3,7 @@ package com.efigueredo.service_identidade.infra.controller;
 import com.efigueredo.service_identidade.domain.Usuario;
 import com.efigueredo.service_identidade.infra.conf.exception.IdentityException;
 import com.efigueredo.service_identidade.infra.conf.security.CustomUserDetails;
+import com.efigueredo.service_identidade.service.TokenJwtService;
 import com.efigueredo.service_identidade.service.UsuarioService;
 import com.efigueredo.service_identidade.service.dto.requisicao.DtoRegistroRequisicao;
 import com.efigueredo.service_identidade.service.dto.requisicao.DtoSenha;
@@ -22,6 +23,7 @@ public class UsuariosController {
 
     @Autowired
     private UsuarioService usuarioService;
+
 
     @PreAuthorize("hasAuthority('ROLE_ADMINISTRADOR')")
     @GetMapping
@@ -84,6 +86,12 @@ public class UsuariosController {
     public ResponseEntity ativarProprioUsuario() throws IdentityException {
         this.usuarioService.ativarUsuarioProprio();
         return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("role/{token}")
+    public ResponseEntity<String> obterRoles(@PathVariable String token) throws IdentityException {
+        String role = this.usuarioService.obterRolePorTokenJwt(token);
+        return ResponseEntity.ok(role);
     }
 
 }

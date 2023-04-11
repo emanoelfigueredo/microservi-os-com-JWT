@@ -4,17 +4,14 @@ import com.efigueredo.serviceanotacoes.domain.Anotacao;
 import com.efigueredo.serviceanotacoes.domain.AnotacaoRepository;
 import com.efigueredo.serviceanotacoes.service.dto.DtoAnotacoesResposta;
 import com.efigueredo.serviceanotacoes.service.dto.requisicao.DtoAnotacoesCadastroRequisicao;
-import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 @Service
 public class AnotacoesService {
@@ -24,6 +21,7 @@ public class AnotacoesService {
 
     @Autowired
     private ModelMapper modelMapper;
+
 
     public Page<DtoAnotacoesResposta> obterTodas(Pageable paginacao) {
         return this.anotacaoRepository.findAll(paginacao)
@@ -62,4 +60,5 @@ public class AnotacoesService {
             throw new EntityNotFoundException("Anotação de id " + id + " não existe.");
         }
     }
+
 }

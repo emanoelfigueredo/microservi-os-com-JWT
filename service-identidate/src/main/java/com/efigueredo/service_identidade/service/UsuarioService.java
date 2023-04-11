@@ -21,6 +21,9 @@ public class UsuarioService extends ServiceIdentity {
     @Autowired
     private PasswordEncoder encoder;
 
+    @Autowired
+    private TokenJwtService tokenJwtService;
+
     public DtoUsuarioResposta salvarUsuario(DtoRegistroRequisicao dto) throws IdentityException {
         this.verificarSeUsernameJaFoiUtilizado(dto.getUsername());
         Usuario usuario = dto.toUsuario();
@@ -132,4 +135,11 @@ public class UsuarioService extends ServiceIdentity {
         }
     }
 
+    public String obterRolePorTokenJwt(String token) {
+        this.tokenJwtService.validarToken(token);
+        String username = this.tokenJwtService.obterSubject(token);
+        Optional<Usuario> usuarioOptional = this.usuarioRepository.findByUsername(username);
+        this.verificarOptionalPorUsername(usuarioOptional, username);
+        return usuarioOptional.get().getRoles();
+    }
 }
