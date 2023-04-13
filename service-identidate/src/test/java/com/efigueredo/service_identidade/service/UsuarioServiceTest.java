@@ -36,9 +36,9 @@ class UsuarioServiceTest extends TestServiceUsuario {
     @Test
     @DisplayName("Deveria registrar usuario com username nunca utilizado")
     public void salvar_usuario_cenario1() throws IdentityException {
-        var dto = new DtoRegistroRequisicao(null, "nome", "username" ,"senha");
+        var dto = new DtoRegistroRequisicao(null, "nome", "username-nunca-utilizado" ,"senha");
         DtoUsuarioResposta dtoUsuarioResposta = this.service.salvarUsuario(dto);
-        var dtoRespostaEsperado = new DtoUsuarioResposta("nome", "username", true);
+        var dtoRespostaEsperado = new DtoUsuarioResposta("nome", "username-nunca-utilizado", true);
         assertThat(dtoUsuarioResposta).isEqualTo(dtoRespostaEsperado);
     }
 

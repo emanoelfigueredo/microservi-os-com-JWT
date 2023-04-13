@@ -4,11 +4,15 @@ import com.efigueredo.service_identidade.domain.RolesUsuario;
 import com.efigueredo.service_identidade.domain.Usuario;
 import com.efigueredo.service_identidade.infra.conf.exception.IdentityException;
 import com.efigueredo.service_identidade.infra.conf.security.CustomUserDetails;
+import com.efigueredo.service_identidade.service.dto.DtoAutenticacao;
 import com.efigueredo.service_identidade.service.dto.requisicao.DtoRegistroRequisicao;
 import com.efigueredo.service_identidade.service.dto.resposta.DtoUsuarioResposta;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -23,6 +27,16 @@ public class UsuarioService extends ServiceIdentity {
 
     @Autowired
     private TokenJwtService tokenJwtService;
+
+    @Autowired
+    private AuthenticationManager authManager;
+
+    public void autenticar(DtoAutenticacao dto) throws IdentityException {
+        Authentication autenticacao = this.authManager.authenticate(new UsernamePasswordAuthenticationToken(dto.username(), dto.senha()));
+        if(!autenticacao.isAuthenticated()) {
+            throw new IdentityException("Falha na autenticacao", "Credenciais invalidas", "", "401");
+        }
+    }
 
     public DtoUsuarioResposta salvarUsuario(DtoRegistroRequisicao dto) throws IdentityException {
         this.verificarSeUsernameJaFoiUtilizado(dto.getUsername());

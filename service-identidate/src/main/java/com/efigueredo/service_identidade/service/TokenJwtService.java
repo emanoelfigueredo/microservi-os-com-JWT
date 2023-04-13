@@ -1,18 +1,12 @@
 package com.efigueredo.service_identidade.service;
 
-import java.security.Key;
-
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.efigueredo.service_identidade.infra.conf.exception.IdentityException;
 import io.jsonwebtoken.*;
-import io.jsonwebtoken.io.Decoders;
-import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
-import javax.crypto.spec.SecretKeySpec;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,9 +24,9 @@ public class TokenJwtService {
                     .build()
                     .verify(jwtToken);
         } catch (SignatureVerificationException ex) {
-            throw new IdentityException("Falha na autenticação", "Token JWT inválido", "", "403");
+            throw new IdentityException("Falha na autenticacao", "Token JWT invalido", "", "401");
         } catch (ExpiredJwtException ex) {
-            throw new IdentityException("Falha na autenticação", "Token JWT expirado", "", "401");
+            throw new IdentityException("Falha na autenticacao", "Token JWT expirado", "", "401");
         }
     }
 

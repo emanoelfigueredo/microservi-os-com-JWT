@@ -20,9 +20,6 @@ public class IdentidadeController {
 
     @Autowired
     private UsuarioService usuarioService;
-    
-    @Autowired
-    private AuthenticationManager authManager;
 
     @Autowired
     private TokenJwtService tokenJwtService;
@@ -35,8 +32,8 @@ public class IdentidadeController {
 
     @PostMapping("autenticar")
     public ResponseEntity<TokenJwt> autenticacao(@RequestBody @Valid DtoAutenticacao dto) throws IdentityException {
-        this.autenticar(dto);
-        TokenJwt tokenJwt = this.tokenJwtService.gerarToken(dto.getUsername());
+        this.usuarioService.autenticar(dto);
+        TokenJwt tokenJwt = this.tokenJwtService.gerarToken(dto.username());
         return ResponseEntity.ok().body(tokenJwt);
     }
 
@@ -44,13 +41,6 @@ public class IdentidadeController {
     public ResponseEntity<String> validar(@RequestParam("token") String token) throws IdentityException {
         this.tokenJwtService.validarToken(token);
         return ResponseEntity.ok().build();
-    }
-
-    private void autenticar(DtoAutenticacao dto) throws IdentityException {
-        Authentication autenticacao = this.authManager.authenticate(new UsernamePasswordAuthenticationToken(dto.getUsername(), dto.getSenha()));
-        if(!autenticacao.isAuthenticated()) {
-            throw new IdentityException("Falha na autenticação", "Credenciais invalidas", "", "403");
-        }
     }
 
 }

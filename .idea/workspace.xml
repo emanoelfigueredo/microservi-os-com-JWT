@@ -5,21 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57083648-8e67-4125-9840-711b3cd42d67" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/infra/client/UsuarioRoleClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/infra/handler/exceptions/AnotacaoException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/service/roles/Roles.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/service/roles/RolesService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-identidate/src/test/java/com/efigueredo/service_identidade/anotacoes/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-identidate/src/test/java/com/efigueredo/service_identidade/anotacoes/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-identidate/src/test/java/com/efigueredo/service_identidade/anotacoes/WithMockCustomUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-identidate/src/test/java/com/efigueredo/service_identidade/anotacoes/WithMockCustomUserSecurityContextFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-identidate/src/test/java/com/efigueredo/service_identidade/infra/controller/IdentidadeControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-identidate/src/test/java/com/efigueredo/service_identidade/infra/controller/UsuariosControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-identidate/src/test/java/com/efigueredo/service_identidade/util/JWTUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-anotacoes/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-anotacoes/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/ServiceAnotacoesApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/ServiceAnotacoesApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/infra/client/UsuariosClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/infra/controller/AnotacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/infra/controller/AnotacaoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/infra/handler/exceptions/HandlerException.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/infra/handler/exceptions/HandlerException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/service/AnotacoesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/service/AnotacoesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/service/ValidadorTokenJwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/service/ValidadorTokenJwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/infra/controller/IdentidadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/infra/controller/IdentidadeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/infra/controller/UsuariosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/infra/controller/UsuariosController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/TokenJwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/TokenJwtService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/UsuarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/dto/DtoAutenticacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/dto/DtoAutenticacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-identidate/src/test/java/com/efigueredo/service_identidade/MsIdentidadeApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-identidate/src/test/java/com/efigueredo/service_identidade/service/UsuarioServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidate/src/test/java/com/efigueredo/service_identidade/service/UsuarioServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,11 +32,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Interface" />
-        <option value="AnnotationType" />
         <option value="Enum" />
+        <option value="AnnotationType" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -89,6 +89,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.efigueredo.service_identidade.infra.controller" />
       <recent name="com.efigueredo.service_identidade.service" />
       <recent name="com.efigueredo.serviceanotacoes.service" />
     </key>
@@ -104,76 +105,74 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.ServiceAnotacoesApplication">
-    <configuration name="MsIdentidadeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <envs>
-        <env name="SECRET_KEY" value="5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437" />
-      </envs>
-      <option name="MAIN_CLASS_NAME" value="com.efigueredo.service_identidade.MsIdentidadeApplication" />
+  <component name="RunManager" selected="JUnit.java in service-identidate">
+    <configuration name="UsuariosControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service-identidate" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.efigueredo.service_identidade.*" />
+          <option name="PATTERN" value="com.efigueredo.service_identidade.infra.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServiceAnotacoesApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.efigueredo.serviceanotacoes.ServiceAnotacoesApplication" />
-      <module name="service-anotacoes" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.efigueredo.serviceanotacoes.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServiceGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <envs>
-        <env name="SECRET_KEY" value="5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437" />
-      </envs>
-      <option name="MAIN_CLASS_NAME" value="com.efigueredo.service_gateway.ServiceGatewayApplication" />
-      <module name="service-gateway" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.efigueredo.service_gateway.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServiceRegistryApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.efigueredo.service_registry.ServiceRegistryApplication" />
-      <module name="service-registry" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.efigueredo.service_registry.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UsuarioServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="service-identidate" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.efigueredo.service_identidade.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.efigueredo.service_identidade.service" />
-      <option name="MAIN_CLASS_NAME" value="com.efigueredo.service_identidade.service.UsuarioServiceTest" />
+      <option name="PACKAGE_NAME" value="com.efigueredo.service_identidade.infra.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.efigueredo.service_identidade.infra.controller.UsuariosControllerTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsuariosControllerTest.alterarCredenciaisProprias_cenario1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service-identidate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.efigueredo.service_identidade.infra.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.efigueredo.service_identidade.infra.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.efigueredo.service_identidade.infra.controller.UsuariosControllerTest" />
+      <option name="METHOD_NAME" value="alterarCredenciaisProprias_cenario1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsuariosControllerTest.atualizarUsuario_cenario2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service-identidate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.efigueredo.service_identidade.infra.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.efigueredo.service_identidade.infra.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.efigueredo.service_identidade.infra.controller.UsuariosControllerTest" />
+      <option name="METHOD_NAME" value="atualizarUsuario_cenario2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsuariosControllerTest.obterRolePorTokenJwt_cenario1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service-identidate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.efigueredo.service_identidade.infra.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.efigueredo.service_identidade.infra.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.efigueredo.service_identidade.infra.controller.UsuariosControllerTest" />
+      <option name="METHOD_NAME" value="obterRolePorTokenJwt_cenario1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in service-identidate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service-identidate" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/service-identidate/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -198,19 +197,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.ServiceAnotacoesApplication" />
-      <item itemvalue="Application.ServiceGatewayApplication" />
-      <item itemvalue="Application.ServiceRegistryApplication" />
-      <item itemvalue="Application.MsIdentidadeApplication" />
-      <item itemvalue="JUnit.UsuarioServiceTest" />
+      <item itemvalue="JUnit.UsuariosControllerTest" />
+      <item itemvalue="JUnit.UsuariosControllerTest.alterarCredenciaisProprias_cenario1" />
+      <item itemvalue="JUnit.UsuariosControllerTest.atualizarUsuario_cenario2" />
+      <item itemvalue="JUnit.UsuariosControllerTest.obterRolePorTokenJwt_cenario1" />
+      <item itemvalue="JUnit.java in service-identidate" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ServiceAnotacoesApplication" />
-        <item itemvalue="Application.MsIdentidadeApplication" />
-        <item itemvalue="Application.ServiceGatewayApplication" />
-        <item itemvalue="Application.ServiceRegistryApplication" />
-        <item itemvalue="JUnit.UsuarioServiceTest" />
+        <item itemvalue="JUnit.java in service-identidate" />
+        <item itemvalue="JUnit.UsuariosControllerTest.obterRolePorTokenJwt_cenario1" />
+        <item itemvalue="JUnit.UsuariosControllerTest" />
+        <item itemvalue="JUnit.UsuariosControllerTest.alterarCredenciaisProprias_cenario1" />
+        <item itemvalue="JUnit.UsuariosControllerTest.atualizarUsuario_cenario2" />
       </list>
     </recent_temporary>
   </component>
@@ -224,5 +223,16 @@
       <updated>1680187656476</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service-identidate/src/main/java/com/efigueredo/service_identidade/service/TokenJwtService.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
