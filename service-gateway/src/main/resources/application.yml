@@ -12,7 +12,7 @@ spring:
         - id: ms-identidade
           uri: lb://ms-identidade
           predicates:
-            - Path=/identidade/**
+            - Path=/usuarios/**
 
   application:
     name: SERVICE-GATEWAY

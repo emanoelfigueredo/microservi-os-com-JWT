@@ -58,7 +58,8 @@ public class AutenticacaoConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf().disable()
                 .authorizeHttpRequests()
-                .anyRequest().permitAll()
+                .requestMatchers("/usuarios/autenticar", "/usuarios/token/validar", "/usuarios/registrar", "/usuarios/role/**").permitAll()
+                .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(autenticacaoFilter, UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(exceptionHandlerFilter, AutenticacaoFilter.class)

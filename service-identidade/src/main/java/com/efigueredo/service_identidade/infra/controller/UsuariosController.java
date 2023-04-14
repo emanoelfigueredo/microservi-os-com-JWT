@@ -3,7 +3,10 @@ package com.efigueredo.service_identidade.infra.controller;
 import com.efigueredo.service_identidade.domain.Usuario;
 import com.efigueredo.service_identidade.infra.conf.exception.IdentityException;
 import com.efigueredo.service_identidade.infra.conf.security.CustomUserDetails;
+import com.efigueredo.service_identidade.service.TokenJwt;
+import com.efigueredo.service_identidade.service.TokenJwtService;
 import com.efigueredo.service_identidade.service.UsuarioService;
+import com.efigueredo.service_identidade.service.dto.DtoAutenticacao;
 import com.efigueredo.service_identidade.service.dto.requisicao.DtoRegistroRequisicao;
 import com.efigueredo.service_identidade.service.dto.requisicao.DtoSenha;
 import com.efigueredo.service_identidade.service.dto.resposta.DtoUsuarioResposta;
@@ -22,6 +25,30 @@ public class UsuariosController {
 
     @Autowired
     private UsuarioService usuarioService;
+
+    @Autowired
+    private TokenJwtService tokenJwtService;
+
+    @PostMapping("registrar")
+    public ResponseEntity registrar(@RequestBody @Valid DtoRegistroRequisicao dto) throws IdentityException {
+        this.usuarioService.salvarUsuario(dto);
+
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("autenticar")
+    public ResponseEntity<TokenJwt> autenticacao(@RequestBody @Valid DtoAutenticacao dto) throws IdentityException {
+        this.usuarioService.autenticar(dto);
+        TokenJwt tokenJwt = this.tokenJwtService.gerarToken(dto.username());
+        System.out.println(tokenJwt);
+        return ResponseEntity.ok().body(tokenJwt);
+    }
+
+    @GetMapping("token/validar")
+    public ResponseEntity<String> validar(@RequestParam("token") String token) throws IdentityException {
+        this.tokenJwtService.validarToken(token);
+        return ResponseEntity.ok().build();
+    }
 
     @PreAuthorize("hasAuthority('ROLE_ADMINISTRADOR')")
     @GetMapping
@@ -86,7 +113,7 @@ public class UsuariosController {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("role/{token}")
+    @GetMapping("role/{token}")
     public ResponseEntity<String> obterRoles(@PathVariable String token) throws IdentityException {
         String role = this.usuarioService.obterRolePorTokenJwt(token);
         return ResponseEntity.ok(role);

@@ -1,20 +1,25 @@
 package com.efigueredo.serviceanotacoes.service.roles;
 
-import com.efigueredo.serviceanotacoes.infra.client.UsuarioRoleClient;
 import com.efigueredo.serviceanotacoes.infra.handler.exceptions.AnotacaoException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import java.net.URI;
 
 @Service
 public class RolesService {
 
     @Autowired
-    private UsuarioRoleClient usuarioRoleClient;
+    private RestTemplate restTemplate;
 
     public void verificarAutorizacaoDoUsuario(HttpServletRequest request, Roles role) {
         String tokenJWT = this.obterTokenJWT(request);
-        String roleUsuario = this.usuarioRoleClient.obterRolePorTokenJwt(tokenJWT);
+        ResponseEntity<String> result = this.restTemplate.getForEntity("http://localhost:8082/usuarios/role/" + tokenJWT, String.class);
+        String roleUsuario = result.getBody();
         if(!role.corresponde(roleUsuario)) {
             throw new AnotacaoException("Não autorizado", "Você não tem permissão para acessar esse endpoint", "", "403");
         }
