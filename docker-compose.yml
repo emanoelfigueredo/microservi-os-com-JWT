@@ -23,6 +23,7 @@ services:
       EUREKA_PORT: 8761
       EUREKA_HOST: eureka-server
       SECRET_KEY: $SECRET_KEY
+      IDENTIDADE_HOST: $IDENTIDADE_HOST
 
   mysqldb:
     container_name: mysqldb
@@ -74,4 +75,5 @@ services:
       MYSQL_PORT: $MYSQL_PORT
       EUREKA_PORT: 8761
       EUREKA_HOST: eureka-server
+      IDENTIDADE_HOST: $IDENTIDADE_HOST
 

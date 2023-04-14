@@ -62,7 +62,7 @@ class IdentidadeControllerTest {
         DtoRegistroRequisicao dto = new DtoRegistroRequisicao(null, "nome", "username", "senha123");
         when(this.usuarioService.salvarUsuario(dto)).thenReturn(null);
         var response = this.mvc.perform(
-                            post("/identidade/registrar")
+                            post("/usuarios/registrar")
                                     .contentType(MediaType.APPLICATION_JSON)
                                     .content(this.dtoRegistro.write(dto).getJson())
                         ).andReturn().getResponse();
@@ -75,7 +75,7 @@ class IdentidadeControllerTest {
         String token = this.jwtUtil.gerarToken("admin", (100 * 60 * 30)).getToken();
         doNothing().when(this.tokenJwtService).validarToken(token);
         var response = this.mvc.perform(
-                get("/identidade/validar")
+                get("/usuarios/token/validar")
                         .param("token", token)
         ).andReturn().getResponse();
         assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
@@ -90,7 +90,7 @@ class IdentidadeControllerTest {
         doThrow(excecao).when(this.tokenJwtService).validarToken(tokenInvalido);
 
         var response = this.mvc.perform(
-                get("/identidade/validar")
+                get("/usuarios/token/validar")
                         .param("token", tokenInvalido)
         ).andReturn().getResponse();
 
@@ -111,7 +111,7 @@ class IdentidadeControllerTest {
         doThrow(excecao).when(this.tokenJwtService).validarToken(tokenExpirado);
 
         var response = this.mvc.perform(
-                get("/identidade/validar")
+                get("/usuarios/token/validar")
                         .param("token", tokenExpirado)
         ).andReturn().getResponse();
 
@@ -134,7 +134,7 @@ class IdentidadeControllerTest {
         when(this.tokenJwtService.gerarToken(dto.username())).thenReturn(token);
 
         var response = this.mvc.perform(
-                post("/identidade/autenticar")
+                post("/usuarios/autenticar")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(this.dtoAutenticacao.write(dto).getJson())
         ).andReturn().getResponse();
@@ -158,7 +158,7 @@ class IdentidadeControllerTest {
         when(this.tokenJwtService.gerarToken(dto.username())).thenReturn(token);
 
         var response = this.mvc.perform(
-                post("/identidade/autenticar")
+                post("/usuarios/autenticar")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(this.dtoAutenticacao.write(dto).getJson())
         ).andReturn().getResponse();

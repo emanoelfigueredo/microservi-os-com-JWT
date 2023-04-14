@@ -302,7 +302,7 @@ class UsuariosControllerTest {
 
         doReturn("ROLE_USUARIO").when(this.usuarioService).obterRolePorTokenJwt("tokenJWT");
         var response = this.mockMvc.perform(
-                post("/usuarios/role/tokenJWT")
+                get("/usuarios/role/tokenJWT")
         ).andReturn().getResponse();
 
         assertThat(response.getStatus()).isEqualTo(200);
