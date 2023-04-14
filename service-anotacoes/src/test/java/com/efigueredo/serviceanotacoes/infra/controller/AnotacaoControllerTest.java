@@ -4,6 +4,7 @@ import com.efigueredo.serviceanotacoes.infra.handler.exceptions.DtoErro;
 import com.efigueredo.serviceanotacoes.service.AnotacoesService;
 import com.efigueredo.serviceanotacoes.service.dto.DtoAnotacoesResposta;
 import com.efigueredo.serviceanotacoes.service.dto.requisicao.DtoAnotacoesCadastroRequisicao;
+import com.efigueredo.serviceanotacoes.service.roles.RolesService;
 import jakarta.persistence.EntityNotFoundException;
 import org.json.JSONObject;
 import org.junit.jupiter.api.DisplayName;
@@ -41,6 +42,9 @@ public class AnotacaoControllerTest {
     @MockBean
     private AnotacoesService anotacaoService;
 
+    @MockBean
+    private RolesService rolesService;
+
     @Autowired
     private MockMvc mvc;
 
@@ -60,9 +64,14 @@ public class AnotacaoControllerTest {
     @Autowired
     private JacksonTester<DtoAnotacoesCadastroRequisicao> dtoCadastroAnotacao;
 
+    private void beforeAll() {
+        doNothing().when(this.rolesService).verificarAutorizacaoDoUsuario(any(), any());
+    }
+
     @Test
     @DisplayName("Deveria retornar código 201 e o JSON da anotação criada")
     public void criar_anotacao_cenario1() throws Exception {
+        this.beforeAll();
         var dtoCadastro = new DtoAnotacoesCadastroRequisicao(null, "titulo", "conteudo");
         var dtoResposta = new DtoAnotacoesResposta(null, "titulo", "conteudo", LocalDateTime.now());
         when(this.anotacaoService.criarAnotacao(dtoCadastro)).thenReturn(dtoResposta);
@@ -80,6 +89,7 @@ public class AnotacaoControllerTest {
     @DisplayName("Deveria retornar código 422 quando o JSON do POST estiver com campo titulo incorreto")
     public void criar_anotacao_cenario3() throws Exception {
 
+        this.beforeAll();
         JSONObject jsonEnviadoCampoTituloIncorreto = new JSONObject();
         jsonEnviadoCampoTituloIncorreto.put("tituto-errado", "valor");
         jsonEnviadoCampoTituloIncorreto.put("conteudo", "valor");
@@ -102,6 +112,7 @@ public class AnotacaoControllerTest {
     @DisplayName("Deveria retornar código 422 quando o JSON do POST estiver com campo conteudo incorreto")
     public void criar_anotacao_cenario4() throws Exception {
 
+        this.beforeAll();
         JSONObject jsonEnviadoCampoTituloIncorreto = new JSONObject();
         jsonEnviadoCampoTituloIncorreto.put("titulo", "valor");
         jsonEnviadoCampoTituloIncorreto.put("conteudo-errado", "valor");
@@ -124,6 +135,7 @@ public class AnotacaoControllerTest {
     @DisplayName("Deveria retornar código 422 quando o JSON do POST estiver com campos incorretos")
     public void criar_anotacao_cenario2() throws Exception {
 
+        this.beforeAll();
         JSONObject jsonEnviadoCampoTituloIncorreto = new JSONObject();
         jsonEnviadoCampoTituloIncorreto.put("tituto-errado", "valor");
         jsonEnviadoCampoTituloIncorreto.put("conteudo-errado", "valor");
@@ -157,6 +169,7 @@ public class AnotacaoControllerTest {
     @Test
     @DisplayName("Deveria retornar código 204 quando a remoção de anotação for concluída")
     public void remover_anotacao_cenario1() throws Exception {
+        this.beforeAll();
         doNothing().when(this.anotacaoService).removerAnotacao(1l);
         var response = this.mvc.perform(
                                 delete("/anotacoes/1")
@@ -168,6 +181,7 @@ public class AnotacaoControllerTest {
     @DisplayName("Deveria retornar código 404 quando for solicitado a remoção de uma anotação de ID inexistente")
     public void remover_anotacao_cenario2() throws Exception {
 
+        this.beforeAll();
         var ex = new EntityNotFoundException("Anotacao de id 20 nao existe");
         doThrow(ex).when(this.anotacaoService).removerAnotacao(20l);
         var response = this.mvc.perform(
@@ -184,6 +198,7 @@ public class AnotacaoControllerTest {
     @Test
     @DisplayName("Deveria retonrar código 200 quando requisição de atualização de anotação for bem sucedido")
     public void atualizar_anotacao_cenario1() throws Exception {
+        this.beforeAll();
         var dtoRequisicao = new DtoAnotacoesCadastroRequisicao(
                 null, "titulo alterado", "conteudo alterado"
         );
@@ -209,6 +224,7 @@ public class AnotacaoControllerTest {
     @Test
     @DisplayName("Deveria retonrar código 404 quando requisição de atualização vir com id inexistente")
     public void atualizar_anotacao_cenario2() throws Exception {
+        this.beforeAll();
         var dtoRequisicao = new DtoAnotacoesCadastroRequisicao(
                 null, "titulo alterado", "conteudo alterado"
         );
@@ -234,6 +250,7 @@ public class AnotacaoControllerTest {
     @DisplayName("Deveria retornar código 200 e Json da anotação quando for encontrada")
     public void obter_anotacao_cenario2() throws Exception {
 
+        this.beforeAll();
         var dtoRespostaService = new DtoAnotacoesResposta(1l, "titulo1", "conteudo1", LocalDateTime.now());
         when(this.anotacaoService.obterAnotacao(1l)).thenReturn(dtoRespostaService);
 
@@ -252,6 +269,7 @@ public class AnotacaoControllerTest {
     @DisplayName("Deveria retornar código 404 e Json de erro quando buscar anotacao inexistente")
     public void obter_anotacao_cenario1() throws Exception {
 
+        this.beforeAll();
         var ex = new EntityNotFoundException("Anotacao de id 20 nao existe");
         doThrow(ex).when(this.anotacaoService).obterAnotacao(20l);
 

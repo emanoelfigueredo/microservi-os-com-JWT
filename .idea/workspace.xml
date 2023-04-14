@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57083648-8e67-4125-9840-711b3cd42d67" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/service-anotacoes/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/service/roles/RolesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-anotacoes/src/main/java/com/efigueredo/serviceanotacoes/service/roles/RolesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/conf/BeanConfigurarion.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/conf/BeanConfigurarion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/exception/GlobalErrorAttributes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/exception/GlobalErrorWebExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/filter/AutenticacaoFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/infra/filter/AutenticacaoFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-gateway/src/main/java/com/efigueredo/service_gateway/service/ValidadorTokenJwtService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service-gateway/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidade/src/test/java/com/efigueredo/service_identidade/infra/controller/IdentidadeControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidade/src/test/java/com/efigueredo/service_identidade/infra/controller/IdentidadeControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-anotacoes/src/test/java/com/efigueredo/serviceanotacoes/infra/controller/AnotacaoControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-anotacoes/src/test/java/com/efigueredo/serviceanotacoes/infra/controller/AnotacaoControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,23 +92,7 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UsuariosControllerTest">
-    <configuration name="MsIdentidadeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <envs>
-        <env name="SECRET_KEY" value="5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437" />
-      </envs>
-      <option name="MAIN_CLASS_NAME" value="com.efigueredo.service_identidade.MsIdentidadeApplication" />
-      <module name="service-identidade" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.efigueredo.service_identidade.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.serviceanotacoes in service-anotacoes">
     <configuration name="ServiceAnotacoesApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <envs>
         <env name="ms.identidade.host" value="localhost:8082" />
@@ -182,6 +156,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="serviceanotacoes in service-anotacoes" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service-anotacoes" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/service-anotacoes/src/test/java/com/efigueredo/serviceanotacoes" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="service-gateway" />
       <method v="2">
@@ -202,19 +184,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.MsIdentidadeApplication" />
       <item itemvalue="Application.ServiceAnotacoesApplication" />
       <item itemvalue="Application.ServiceGatewayApplication" />
       <item itemvalue="JUnit.IdentidadeControllerTest" />
+      <item itemvalue="JUnit.serviceanotacoes in service-anotacoes" />
       <item itemvalue="JUnit.UsuariosControllerTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.serviceanotacoes in service-anotacoes" />
         <item itemvalue="JUnit.UsuariosControllerTest" />
         <item itemvalue="JUnit.IdentidadeControllerTest" />
         <item itemvalue="Application.ServiceAnotacoesApplication" />
         <item itemvalue="Application.ServiceGatewayApplication" />
-        <item itemvalue="Application.MsIdentidadeApplication" />
       </list>
     </recent_temporary>
   </component>
