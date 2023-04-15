@@ -13,9 +13,4 @@ public class Configurations {
         return new ModelMapper();
     }
 
-    @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
-
 }

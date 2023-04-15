@@ -11,16 +11,8 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class RolesService {
 
-    @Value("${ms.identidade.host}")
-    private String MS_IDENTIDADE_HOST;
-
-    @Autowired
-    private RestTemplate restTemplate;
-
     public void verificarAutorizacaoDoUsuario(HttpServletRequest request, Roles role) {
-        String tokenJWT = this.obterTokenJWT(request);
-        ResponseEntity<String> result = this.restTemplate.getForEntity("http://" + MS_IDENTIDADE_HOST + "/usuarios/role/" + tokenJWT, String.class);
-        String roleUsuario = result.getBody();
+        String roleUsuario = request.getHeader("Roles");
         if(!role.corresponde(roleUsuario)) {
             throw new AnotacaoException("Não autorizado", "Você não tem permissão para acessar esse endpoint", "", "403");
         }

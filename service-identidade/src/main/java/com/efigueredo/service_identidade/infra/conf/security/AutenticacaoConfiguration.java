@@ -59,6 +59,7 @@ public class AutenticacaoConfiguration {
         return http.csrf().disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/usuarios/autenticar", "/usuarios/token/validar", "/usuarios/registrar", "/usuarios/role/**").permitAll()
+                .requestMatchers("/v3/api-docs/**", "/documentacao.html", "/swagger-ui/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(autenticacaoFilter, UsernamePasswordAuthenticationFilter.class)

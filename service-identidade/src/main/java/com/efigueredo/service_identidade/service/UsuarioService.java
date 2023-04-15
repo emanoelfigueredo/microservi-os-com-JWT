@@ -126,7 +126,7 @@ public class UsuarioService extends ServiceIdentity {
     private void verificarAutenticidadeDaSenhaInformada(String senhaInformada, String senhaCriptografada) throws IdentityException {
         boolean senhaCriptografadaEAMesmaDaInformada = this.encoder.matches(senhaInformada, senhaCriptografada);
         if(!senhaCriptografadaEAMesmaDaInformada) {
-            throw new IdentityException("Credencial inválida", "Senha inserida é inválida", "", "422");
+            throw new IdentityException("Credencial inválida", "Senha inserida é inválida", "", "400");
         }
     }
 

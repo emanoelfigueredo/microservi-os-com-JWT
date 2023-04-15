@@ -75,5 +75,4 @@ services:
       MYSQL_PORT: $MYSQL_PORT
       EUREKA_PORT: 8761
       EUREKA_HOST: eureka-server
-      IDENTIDADE_HOST: $IDENTIDADE_HOST
 

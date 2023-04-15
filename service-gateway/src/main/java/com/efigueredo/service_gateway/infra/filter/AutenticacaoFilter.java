@@ -5,10 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
-import org.springframework.http.HttpHeaders;
+import org.springframework.http.*;
+import org.springframework.http.client.ClientHttpRequest;
+import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.server.ServerWebExchange;
+
+import java.util.Map;
 
 @Service
 public class AutenticacaoFilter extends AbstractGatewayFilterFactory<AutenticacaoFilter.Config> {
@@ -38,10 +42,28 @@ public class AutenticacaoFilter extends AbstractGatewayFilterFactory<Autenticaca
                 this.verificadorToken.verificarSeTokenENulo(jwtToken);
                 this.verificadorToken.verificarSeTokenPossuiOPrefixoEsperado(jwtToken);
                 jwtToken = jwtToken.substring(7);
-                this.restTemplate.getForEntity("http://" + MS_IDENTIDADE_HOST + "/usuarios/token/validar?token=" + jwtToken, String.class);
+                ResponseEntity<String> response = this.realizarRequisicaoParaMSIdentidade(jwtToken);
+                String roles = response.getBody();
+                this.adicionarHeaderRoles(exchange, roles);
             }
             return chain.filter(exchange);
         });
+    }
+
+    private void adicionarHeaderRoles(ServerWebExchange exchange, String roles) {
+        ServerHttpRequest newHttpRequest = exchange.getRequest().mutate().header("Roles", roles).build();
+        exchange.mutate().request(newHttpRequest);
+    }
+
+    private ResponseEntity<String> realizarRequisicaoParaMSIdentidade(String jwtToken) {
+        HttpEntity<?> request = RequestEntity.get("http://localhost:8082/usuarios/token/validar?token=" + jwtToken).header("AUTHORIZATION", "Bearer " + jwtToken).build();
+        return this.restTemplate
+                .exchange(
+                        "http://localhost:8082/usuarios/token/validar?token=" + jwtToken,
+                        HttpMethod.GET,
+                        request,
+                        String.class
+                );
     }
 
     private String obterTokenAutenticacao(ServerWebExchange exchange) {
