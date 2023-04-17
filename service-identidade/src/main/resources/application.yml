@@ -3,10 +3,9 @@ spring:
     name: ms-identidade
 
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/ms_identidade?createDatabaseIfNotExist=true
-    username: ${MYSQL_USER:root}
-    password: ${MYSQL_PASSWORD:wall2003}
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/ms_identidade?createDatabaseIfNotExist=true
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
 
   jpa:
     hibernate:

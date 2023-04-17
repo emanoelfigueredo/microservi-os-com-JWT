@@ -3,9 +3,9 @@ spring:
     name: ms-anotacoes
 
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/ms_anotacoes?createDatabaseIfNotExist=true
-    username: ${MYSQL_USER:root}
-    password: ${MYSQL_PASSWORD:wall2003}
+    url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/ms_anotacoes?createDatabaseIfNotExist=true
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
 
 
 eureka:
