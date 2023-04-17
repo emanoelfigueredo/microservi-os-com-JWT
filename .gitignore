@@ -19,6 +19,8 @@ zips/
 ##############################
 ## Maven
 ##############################
+mvnw.cmd
+mvnw
 target/
 pom.xml.tag
 pom.xml.releaseBackup

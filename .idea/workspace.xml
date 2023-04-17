@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57083648-8e67-4125-9840-711b3cd42d67" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/gerar-jars-imagens-docker.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-anotacoes/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-anotacoes/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service-gateway/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-gateway/src/test/java/com/efigueredo/service_gateway/ServiceGatewayApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-identidade/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-identidade/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
