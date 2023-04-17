@@ -20,6 +20,7 @@ zips/
 ## Maven
 ##############################
 mvnw.cmd
+.mvn
 mvnw
 target/
 pom.xml.tag
